@@ -4,16 +4,16 @@ import Header from './components/Header';
 import SearchName from './components/SearchName';
 import UserContext from './ContextProvider'
 import Results from './components/Results'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 
 class App extends React.Component {
   state = {
     results: [],
-    loading : false
+    loading: false
   }
 
   handleSubmit = (name) => {
-    this.setState({ loading: true})
+    this.setState({ loading: true })
     fetch(`https://swapi-thinkful.herokuapp.com/api/people/?search=${name}`)
       .then(res => {
         if (res.ok) {
@@ -27,8 +27,9 @@ class App extends React.Component {
         console.log(data)
         console.log(data.results.map(character => character.name))
         // let nameResults= data.results.map(character => character.name)
-        this.setState({ results: data.results, loading:false })
+        this.setState({ results: data.results, loading: false })
         this.props.history.push('/results')
+
       })
   }
 
@@ -43,19 +44,19 @@ class App extends React.Component {
     }
     return (
       <UserContext.Provider
-      value={{
+        value={{
           results: this.state.results,
-          handleSubmit : this.handleSubmit
-      }}
-    >
-      <main className='App'>
-        <Header />
+          handleSubmit: this.handleSubmit
+        }}
+      >
+        <main className='App'>
+          <Header />
           <Route path="/" exact component={SearchName} />
-          <Route path="/results"component={Results}/>
-      </main>
+          <Route path="/results" component={Results} />
+        </main>
       </UserContext.Provider>
     )
   }
 }
 
-export default withRouter (App);
+export default withRouter(App);

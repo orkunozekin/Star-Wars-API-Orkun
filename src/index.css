@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: yellow;
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
@@ -20,10 +22,27 @@ header {
 .navlink {
   text-decoration: none;
   font-size: larger;
-  color: black;
+  color: white;
 }
  .loading {
    text-align: center;
    margin: 300px auto;
    font-size: larger;
+   color: white;
  }
+
+
+ 
+@media screen and (min-width: 1024px) {
+  body {
+      background-image: url('starwars.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-color: black;
+  }
+
+  h1{
+    font-size: 40px
+  }
+}
