@@ -51,8 +51,8 @@ class App extends React.Component {
       >
         <main className='App'>
           <Header />
-          <Route path="/" exact component={SearchName} />
-          <Route path="/results" component={Results} />
+          <Route exact path="/" component={SearchName} />
+          <Route exact path="/results" component={Results} />
         </main>
       </UserContext.Provider>
     )
